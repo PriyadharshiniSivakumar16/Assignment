@@ -1,1 +1,64 @@
+import java.util.Scanner;
 
+public class WeatherApp {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int option;
+
+        do {
+            System.out.println("\nChoose an option:");
+            System.out.println("1. Get weather");
+            System.out.println("2. Get Wind Speed");
+            System.out.println("3. Get Pressure");
+            System.out.println("0. Exit");
+            option = scanner.nextInt();
+
+            switch (option) {
+                case 1:
+                    System.out.print("Enter the date: ");
+                    String date1 = scanner.next();
+                    double temperature = getTemperature(date1);
+                    System.out.println("Temperature on " + date1 + ": " + temperature);
+                    break;
+                case 2:
+                    System.out.print("Enter the date: ");
+                    String date2 = scanner.next();
+                    double windSpeed = getWindSpeed(date2);
+                    System.out.println("Wind Speed on " + date2 + ": " + windSpeed);
+                    break;
+                case 3:
+                    System.out.print("Enter the date: ");
+                    String date3 = scanner.next();
+                    double pressure = getPressure(date3);
+                    System.out.println("Pressure on " + date3 + ": " + pressure);
+                    break;
+                case 0:
+                    System.out.println("Exiting the program...");
+                    break;
+                default:
+                    System.out.println("Invalid option. Please try again.");
+            }
+        } while (option != 0);
+
+        scanner.close();
+    }
+
+    // Replace these methods with actual API calls to get the respective data
+    private static double getTemperature(String date) {
+        // Implement API call to get temperature for the given date
+        // For now, returning a random value for demonstration purposes
+        return Math.random() * 30; // Temperature range: 0 to 30 degrees Celsius
+    }
+
+    private static double getWindSpeed(String date) {
+        // Implement API call to get wind speed for the given date
+        // For now, returning a random value for demonstration purposes
+        return Math.random() * 20; // Wind speed range: 0 to 20 km/h
+    }
+
+    private static double getPressure(String date) {
+        // Implement API call to get pressure for the given date
+        // For now, returning a random value for demonstration purposes
+        return 1000 + Math.random() * 10; // Pressure range: 1000 to 1010 hPa
+    }
+}
